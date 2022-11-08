@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">      
+    <title>Belly Button Biodiversity</title>
+    <link 
+        rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"
+        />
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="shortcut icon" href="#">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style id="plotly.js-style-global"></style>
+    <style id="plotly.js-style-modebar-90a490"></style>
+</head>
+<body class="bg-info">
+    
+    <div class="jumbotron">
+        <h1 class="font-weight-bold">Belly Button Biodiversity Dashboard</h1>
+        <p class="font-weight-bold">Use the interactive charts below to explore the dataset</p>
+    </div>
+
+    <div>
+        <p align="center">
+        This website contains data from a study conducted to discover what bacterial species exist in belly buttons.  Belly button swabs were obtained from a variety of people of varying hygiene regiments.  The swabs were cultured and colonies isolated to determine what bacterial species may lie within. 16S ribosomal RNA sequencing was used to determine the species which are listed by their Operational Taxonomic Unit (OTU). Some species with OTU numbers are currently relatively unstudied, but may make up a significant portion of the bacteria found in a given test subjects belly button! Click the dropdown menu on the left to browse through various test subjects by their ID number.      
+        </p>
+    </div>
+
+    <div class="float-container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="well">
+                    <h5 class="font-weight-bold">Test subject ID number</h5>
+                    <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Demographic Information</h4>
+                    </div>
+                    <div id="sample-metadata" class="panel-primary"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="float-child">
+                    <h5 class="font-weight-bold" align="center">Top 10 Bacterial OTU IDs by sample count</h5>
+                    <div id="bar-plots"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="float-child">
+                    <h5 class="font-weight-bold" align="center">Belly Button Washing Frequency</h5>
+                    <div id="wash-gauge"></div>  
+                </div>
+            </div> 
+        </div>
+    </div>
+    
+    <div class="bubble-boarder" align="center">
+        <h5 class="font-weight-bold" align="center">Bacterial Cultures Per Sample</h5>
+        <div id="bubble-plot"></div>
+    </div>
+    
+    <script src="static/js/data.js"></script>
+    <script src="static/js/charts.js"></script>
+</body>
+</html>
